@@ -33,7 +33,7 @@ spec:
 	stages {
         stage('SonarQube analysis') {
           steps {
-            withSonarQubeEnv(credentialsId: "sonar-token", installationName: "Sonarqube"){
+            withSonarQubeEnv(credentialsId: "sonar-token", installationName: "sonarqube-sonarqube"){
                 sh "mvn clean verify sonar:sonar -DskipTests"
             }
           }
