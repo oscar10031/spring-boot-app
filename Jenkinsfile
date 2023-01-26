@@ -27,6 +27,11 @@ spec:
     command:
     - /busybox/cat
     tty: true
+  - name: springboot
+    image: oscar10031/app-pf-backend:tagname:latest
+    imagePullPolicy: Always
+    command:
+    - sleep
 '''
             // Can also wrap individual steps:
             // container('shell') {
@@ -81,6 +86,16 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                     }
                 } 
             }
+        }
+          //Mi contenedor de DockerHub
+        stage('springboot') {
+            container('springboot') {
+            steps {
+            sh 'echo'
+            sh 'ping 8.8.8.8'
+            }
+                                    
+          }
         }
         
         /*stage('SonarQube analysis') {
