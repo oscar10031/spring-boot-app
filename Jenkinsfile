@@ -11,18 +11,12 @@ pipeline{
             //     args 'infinity'
             // }
             yaml '''
-aapiVersion: v1
+apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: jdk11
-    image: alledodev/jenkins-nodo-java-bootcamp:latest
-    command:
-    - sleep
-    args:
-    - infinity
-  - name: nodejs
-    image: alledodev/jenkins-nodo-nodejs-bootcamp:latest
+  - name: shell
+    image: maven
     command:
     - sleep
     args:
