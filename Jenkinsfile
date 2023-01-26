@@ -1,20 +1,11 @@
 def versionPom = ""
 pipeline{
-	agent {
-        node {
-            label "nodo-java"
-        }
-    }
-
-    environment {
-        registryCredential='docker-hub-credentials'
-        registryBackend = 'franaznarteralco/backend-demo'
-    }
+	agent any 
 
 	stages {
         stage('SonarQube analysis') {
           steps {
-            withSonarQubeEnv(credentialsId: "sonarqube-credentials", installationName: "sonarqube-server"){
+            withSonarQubeEnv(credentialsId: "sonar-token", installationName: "Sonarqube"){
                 sh "mvn clean verify sonar:sonar -DskipTests"
             }
           }
@@ -24,7 +15,7 @@ pipeline{
           steps {
             timeout(time: 10, unit: "MINUTES") {
               script {
-                def qg = waitForQualityGate(webhookSecretId: 'sonarqube-credentials')
+                def qg = waitForQualityGate(webhookSecretId: 'sonar-token')
                 if (qg.status != 'OK') {
                    error "Pipeline aborted due to quality gate failure: ${qg.status}"
                 }
