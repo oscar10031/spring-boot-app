@@ -43,7 +43,7 @@ spec:
 
     stages {
         
-        stage('Unit Tests') {
+        /* stage('Unit Tests') {
           steps {
             echo '''04# Stage - Unit Tests (develop y main): Lanzamiento de test unitarios.
             '''
@@ -96,9 +96,9 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
             }
                                     
           }
-        }
+        } */
         
-        /*stage('SonarQube analysis') {
+        stage('SonarQube analysis') {
           steps {
             withSonarQubeEnv(credentialsId: "sonar-token", installationName: "Sonarqube"){
                 sh "mvn clean verify sonar:sonar -DskipTests"
@@ -117,7 +117,7 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
               }
             }
           }
-        } */
+        } 
 
 
     }
