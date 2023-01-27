@@ -27,11 +27,6 @@ spec:
     command:
     - /busybox/cat
     tty: true
-  - name: springboot
-    image: oscar10031/app-pf-backend:tagname:latest
-    imagePullPolicy: Always
-    command:
-    - sleep
 '''
             // Can also wrap individual steps:
             // container('shell') {
