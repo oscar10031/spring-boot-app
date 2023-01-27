@@ -70,6 +70,7 @@ spec:
 Se deberá depositar el artefacto generado (.jar) en Nexus.(develop y main)
 Generación del artefacto .jar (SNAPSHOT)
 '''
+// comentario
             script {
                 // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                 pom = readMavenPom file: "pom.xml"
